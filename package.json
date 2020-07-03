@@ -1,0 +1,23 @@
+{
+  "name": "mvc_project2",
+  "version": "1.0.0",
+  "description": "A Bookstore to buy books",
+  "main": "node server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karpagasathya/MVC_Project2.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karpagasathya/MVC_Project2/issues"
+  },
+  "homepage": "https://github.com/karpagasathya/MVC_Project2#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0"
+  }
+}

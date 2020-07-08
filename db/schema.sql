@@ -15,7 +15,7 @@ CREATE TABLE books(
     pubYear INT NOT NULL,
     price DECIMAL(13,2) NOT NULL,
     inventory INT NOT NULL DEFAULT 0,
-    bookDescription VARCHAR()
+    bookDescription TEXT
 );
 
 

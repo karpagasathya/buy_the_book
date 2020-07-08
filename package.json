@@ -4,7 +4,7 @@
   "description": "A Bookstore to buy books",
   "main": "node server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,11 @@
   "homepage": "https://github.com/karpagasathya/MVC_Project2#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-handlebars": "^5.0.0",
     "mysql2": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0",
+    "nodemon": "^2.0.4"
   }
 }

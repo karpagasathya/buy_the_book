@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-    var Cart = sequelize.define("itemOrder", {
-        cartId: {
+    var Cart = sequelize.define("Cart", {
+        id: {
             // Sequelize module has INTEGER Data_Type. 
             type: DataTypes.INTEGER,
             // To increment user_id automatically. 
@@ -18,9 +18,11 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DECIMAL,
             allowNull: false
         }
+    }, {
+        freezeTableName: true
     });
     Cart.associate = function (models) {
-        Cart.belongsToMany(models.Book, { through: 'CartBook' });
+        Cart.belongsToMany(models.Book, { through: 'Cartbook' });
         Cart.hasOne(models.Checkout);
     };
 

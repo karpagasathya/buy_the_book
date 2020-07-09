@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-    var Author = sequelize.define("author", {
-        authorId: {
+    var Author = sequelize.define("Author", {
+        id: {
             // Sequelize module has INTEGER Data_Type. 
             type: DataTypes.INTEGER,
             // To increment user_id automatically. 
@@ -10,14 +10,16 @@ module.exports = function (sequelize, DataTypes) {
             // For uniquely identify user. 
             primaryKey: true
         },
-        first_name: {
+        firstName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        last_name: {
+        lastName: {
             type: DataTypes.STRING,
             allowNull: false
         }
+    }, {
+        freezeTableName: true
     });
     Author.associate = function (models) {
         Author.hasMany(models.Book);

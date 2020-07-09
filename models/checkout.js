@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-    var Checkout = sequelize.define("checkout", {
-        checkoutId: {
+    var Checkout = sequelize.define("Checkout", {
+        id: {
             // Sequelize module has INTEGER Data_Type. 
             type: DataTypes.INTEGER,
             // To increment user_id automatically. 
@@ -30,6 +30,8 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         }
+    }, {
+        freezeTableName: true
     });
     Checkout.associate = function (models) {
         Checkout.belongsTo(models.Cart);

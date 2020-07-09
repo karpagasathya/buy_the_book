@@ -1,39 +1,39 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var Checkout = sequelize.define("checkout", {
-        checkoutID:{ 
+        checkoutId: {
             // Sequelize module has INTEGER Data_Type. 
-            type:DataTypes.INTEGER, 
+            type: DataTypes.INTEGER,
             // To increment user_id automatically. 
-            autoIncrement:true, 
+            autoIncrement: true,
             // user_id can not be null. 
-            allowNull:false, 
+            allowNull: false,
             // For uniquely identify user. 
-            primaryKey:true
-        }, 
-        quantity:{
-          type:DataTypes.INTEGER,
-          allowNull:false 
+            primaryKey: true
         },
-        price:{
-            type: DataTypes.DECIMAL,
-            allowNull:false 
-        },
-        shipping:{
-            type: DataTypes.DECIMAL,
-            allowNull:false ,
-            defaultValue: '0'
-        }
-
-    });
-    Checkout.associate = function(models) {
-        // We're saying that a Book should belong to an Author
-        // A Book can't be created without an Author due to the foreign key constraint
-        Checkout.belongsTo(models.Cart, {
-          foreignKey: {
+        addressLine1: {
+            type: DataTypes.STRING,
             allowNull: false
-          }
-        });
-      };
-    
+        },
+        addressLine2: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        state: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        zipCode: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    });
+    Checkout.associate = function (models) {
+        Checkout.belongsTo(models.Cart);
+    };
+
     return Checkout;
-  };
+};

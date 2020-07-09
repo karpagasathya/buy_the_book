@@ -1,28 +1,27 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var Author = sequelize.define("author", {
-        authorID:{ 
+        authorId: {
             // Sequelize module has INTEGER Data_Type. 
-            type:DataTypes.INTEGER, 
+            type: DataTypes.INTEGER,
             // To increment user_id automatically. 
-            autoIncrement:true, 
+            autoIncrement: true,
             // user_id can not be null. 
-            allowNull:false, 
+            allowNull: false,
             // For uniquely identify user. 
-            primaryKey:true
-        }, 
-        first_name:{
-          type:DataTypes.STRING,
-          allowNull:false 
+            primaryKey: true
         },
-        last_name:{
+        first_name: {
             type: DataTypes.STRING,
-            allowNull:false 
+            allowNull: false
+        },
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
-    Author.findAll({}).then((data) => {
-        console.log(data);
-      }).catch((err) => {
-        console.log(err);
-      });
+    Author.associate = function (models) {
+        Author.hasMany(models.Book);
+    };
+
     return Author;
-  };
+};

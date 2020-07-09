@@ -1,23 +1,70 @@
+// Page Loads using show/hide
 window.onload = function () {
-    $("#").show();
-    $("#").hide();
-    $("#").hide();
+    $("#home-page").show();
+    $("#top-9").hide();
+    $("#social-justice").hide();
+    $("#fantasy").hide();
+    $("#new-nyt").hide();
+    $("#classic").hide();
+    $("#children").hide();
 }
 
-$("#button").on("click", function (){
-    $("#").show();
-    $("#").hide();
-    $("#").hide();
+$("#link-top-9").on("click", function (){
+    $("#home-page").hide();
+    $("#top-9").show();
+    $("#social-justice").hide();
+    $("#fantasy").hide();
+    $("#new-nyt").hide();
+    $("#classic").hide();
+    $("#children").hide();
 });
 
-$("#button").on("click", function (){
-    $("#").hide();
-    $("#").show();
-    $("#").hide();
+$("#link-social-justice").on("click", function (){
+    $("#home-page").hide();
+    $("#top-9").hide();
+    $("#social-justice").show();
+    $("#fantasy").hide();
+    $("#new-nyt").hide();
+    $("#classic").hide();
+    $("#children").hide();
 });
 
-$("#button").on("click", function (){
-    $("#").hide();
-    $("#").hide();
-    $("#").show();
+$("#link-fantasy").on("click", function (){
+    $("#home-page").hide();
+    $("#top-9").hide();
+    $("#social-justice").hide();
+    $("#fantasy").show();
+    $("#new-nyt").hide();
+    $("#classic").hide();
+    $("#children").hide();
+});
+
+$("#link-new-nyt").on("click", function (){
+    $("#home-page").hide();
+    $("#top-9").hide();
+    $("#social-justice").hide();
+    $("#fantasy").hide();
+    $("#new-nyt").show();
+    $("#classic").hide();
+    $("#children").hide();
+});
+
+$("#link-classic").on("click", function (){
+    $("#home-page").hide();
+    $("#top-9").hide();
+    $("#social-justice").hide();
+    $("#fantasy").hide();
+    $("#new-nyt").hide();
+    $("#classic").show();
+    $("#children").hide();
+});
+
+$("#link-children").on("click", function (){
+    $("#home-page").hide();
+    $("#top-9").hide();
+    $("#social-justice").hide();
+    $("#fantasy").hide();
+    $("#new-nyt").hide();
+    $("#classic").hide();
+    $("#children").show();
 });

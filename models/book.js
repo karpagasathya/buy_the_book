@@ -1,7 +1,7 @@
 
 module.exports = function (sequelize, DataTypes) {
-    var Book = sequelize.define("books", {
-        bookId: {
+    var Book = sequelize.define("Book", {
+        id: {
             // Sequelize module has INTEGER Data_Type. 
             type: DataTypes.INTEGER,
             // To increment user_id automatically. 
@@ -35,10 +35,16 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false
         }
+    }, {
+        freezeTableName: true
     });
     Book.associate = function (models) {
-        Book.belongsTo(models.Author);
-        Book.belongsToMany(models.Cart, { through: 'CartBook' });
+        Book.belongsTo(models.Author,{
+            foreignKey: {
+              allowNull: false
+            }
+        });
+        Book.belongsToMany(models.Cart, { through: 'Cartbook' });
     };
 
 

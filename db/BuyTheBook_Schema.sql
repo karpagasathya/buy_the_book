@@ -18,43 +18,44 @@ CREATE TABLE books(
     bookDescription TEXT
 );
 
-
 -- Create the table author.
 CREATE TABLE author(
     authorID INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    FOREIGN KEY (bookID) REFERENCES books(bookID)
+    last_name VARCHAR(50) NOT NULL
 );
 
--- Create the table itemOrder.
-CREATE TABLE itemOrder(
+-- Create the table orderDetails.
+-- changed from table name itemOrder
+CREATE TABLE orderDetails(
+	FOREIGN KEY (orderID) REFERENCES orders(orderID),
+	FOREIGN KEY (bookID) REFERENCES books(bookID),
+	quantity INT NOT NULL,
+    price DECIMAL(13,2) NOT NULL
+);
+
+-- Create the table orders.
+-- changed from table name checkout
+CREATE TABLE orders(
     orderID INT AUTO_INCREMENT PRIMARY KEY,
-    quantity INT NOT NULL,
-    price DECIMAL(13,2) NOT NULL,
-    FOREIGN KEY (bookID) REFERENCES books(bookID)
-);
-
--- Create the table checkout.
-CREATE TABLE checkout(
-    checkoutID INT AUTO_INCREMENT PRIMARY KEY,
-    quantity INT NOT NULL,
-    price DECIMAL(13,2) NOT NULL,
+    subtotal DECIMAL(13,2) NOT NULL,
     shipping DECIMAL(13,2) NOT NULL DEFAULT 0,
-    FOREIGN KEY (orderID) REFERENCES itemOrder(orderID)
-    ON DELETE CASCADE
+    total_price DECIMAL(13,2) NOT NULL,
+	FOREIGN KEY (customerID) REFERENCES customer(customerID),
+	street_number VARCHAR(50) NOT NULL,
+    street_name VARCHAR(50) NOT NULL,
+	state VARCHAR(50) NOT NULL,
+    postal_code INT NOT NULL,
+    phone_number VARCHAR(20) NOT NULL
 );
 
 -- Create the table customer.
 CREATE TABLE customer(
 	customerID INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL,
+    pwd VARCHAR(100) NOT NULL,
+    -- do we need to store as a hash?
+    -- might change based on how we use 0auth
     first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    street_number VARCHAR(50) NOT NULL,
-    street_name VARCHAR(50) NOT NULL,
-    postal_code INT NOT NULL,
-    province VARCHAR(50),
-    country VARCHAR(50) NOT NULL,
-    phone_number VARCHAR(20)
+    last_name VARCHAR(50) NOT NULL
 );

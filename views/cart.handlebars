@@ -1,0 +1,25 @@
+{{# if Cart }}
+
+<div class="row">
+    <div class="col s12 m4 l3">
+      <div class="collection">
+        {{#each Cart}}
+          <li class="collection-item"></li>
+          <span>{{dataValues.quantity}}</span>
+          <strong>{{dataValues.title}}</strong>
+          <span class="label label-success">$ {{this.price}}</span>
+        {{/each}}
+      </div>
+    </div>
+<div class="row">
+	<div class="col s12 m5 l3">
+		<a href="/checkout" class="btn btn-success">Checkout</a>
+	</div>
+</div>
+{{ else }}
+<div class="row">
+	<div class="text-center">
+		<h4>No items in Cart</h4>
+	</div>
+</div>
+{{/ if }}

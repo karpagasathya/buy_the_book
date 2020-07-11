@@ -18,15 +18,8 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-console.log("going to author api routes");
-require("./routes/author-api-routes")(app);
-require("./routes/cart-api-routes")(app);
-
-
 console.log("going to html route");
 app.use("/", require("./routes/html-routes"));
-
-
 
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {

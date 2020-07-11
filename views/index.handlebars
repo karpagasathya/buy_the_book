@@ -1,184 +1,90 @@
  <!-- Navigation for every page -->
-<nav class="white" role="navigation">
+<nav class="blue-grey" role="navigation">
   <div class="nav-wrapper container">
-    <a id="logo-container" href="#" class="brand-logo">Buy the Book!</a>
+    <a id="logo-container" href="#" class="brand-logo white-text">Buy the Book!</a>
     <ul class="right hide-on-med-and-down">
       <li><a href="#">Navbar Link Search?</a></li>
     </ul>
-
-    <ul id="nav-mobile" class="sidenav">
+    {{!-- <button id="google">Login with Google</button> --}}
+    {{!-- <ul id="nav-mobile" class="sidenav">
       <li><a href="#">Navbar Link Search?</a></li>
-    </ul>
+    </ul> --}}
     <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
   </div>
 </nav>
 
-
 <!-- Home Page -->
 <main id="home-page">
-
-<div id="home-banner" class="parallax-container">
-  <div class="section no-pad-bot">
-    <div class="conatiner">
-      <br><br>
-      <h3 class="header center light">An Online Bookstore <span class="fa fa-book"></span></h3>
-      <div class="row center">
-        <h5 class="header col s12 light">Whether for entertainment, pure enjoyment or to find something to invigorate your minde.</h5>
-        <h5 class="header col s12 light">Browse through the genres below to find your new book!</h5>
+  <div id="home-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h3 class="header center light">An Online Bookstore <span class="fa fa-book"></span></h3>
+        <div class="row center">
+          <h5 class="header col s12 light">Whether for entertainment, pure enjoyment or to find something to invigorate your minde.</h5>
+          <h5 class="header col s12 light">Browse through the genres below to find your new book!</h5>
+        </div>
+        <br><br>
       </div>
-      <br><br>
+    </div>
+    <div class="parallax"><img src="assets/img/books1.jpg" alt="Background img 1"></div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m4 l3">
+      <div class="collection">
+        {{#each category}}
+          <a href="#!" class="collection-item">{{DISTINCT}}</a>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="col s12 m8 l9">
+      {{#each top9Books}}
+      <div class="row">
+        <div class="col s12 m6 l4">
+          <div class="card">
+            <div class="card-image">
+              <img src="/assets/img/card_image.jpeg">
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            </div>
+          <div class="card-content">
+            <span class="card-title">{{dataValues.title}}</span>
+            <p>{{dataValues.bookDescription}}</p>
+            <p>{{dataValues.price}}</p>
+          </div>
+        </div>
+      </div>
+      {{else}}
+        <p>no books available</p>
+      {{/each}}
     </div>
   </div>
-  <div class="parallax"><img src="books1.jpg" alt="Background img 1"></div>
-</div>
-{{#each Author}}
-  <h1>id: {{dataValues.id}}</h1>
-  <h3>fisrtName: {{dataValues.firstName}}</h3>
-  <h3>lastName: {{dataValues.lastName}}</h3>
 
-{{else}}
-  <p>no books available</p>
-{{/each}}
-
-<div class="container">
-  <div class="section">
-    <!-- Book Genres Row 1-->
-    <div class="row">
-      <!-- Top 9 -->
-      <div class="col s12 m4">
-        <div class="card-panel blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title flow-text">Top 9 Books</span>
-            <p>This top 9 list of books is derived from the top 100 recommended books to read within your lifetime.</p>
-          </div>
-          <div class="card-action">
-            <a href="#" id="link-top-9">View Top 9 Book Selections</a>
-          </div>
-        </div>
-      </div>
-      <!-- Social Justice -->
-      <div class="col s12 m4">
-        <div class="card-panel blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title flow-text">Social Justice Books</span>
-            <p>Books of social interests covering an array of social, political and philosophical concepts.</p>
-          </div>
-          <div class="card-action">
-            <a href="#" id="link-social-justice">View Social Justice Selections</a>
-          </div>
-        </div>
-      </div>
-      <!-- Fantasy -->
-      <div class="col s12 m4">
-        <div class="card-panel blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title flow-text">Fantasy Books</span>
-            <p>Speculative fiction set in fictional universe and often inspired by real world myth and folklore.</p>
-          </div>
-          <div class="card-action">
-            <a href="#" id="link-fantasy">View Fantasy Book Selections</a>
-          </div>
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Put a famous author quote?</h5>
         </div>
       </div>
     </div>
-    <!-- Book Genres Row 2 -->
-    <div class="row">
-      <!-- New Books NYT -->
-      <div class="col s12 m4">
-        <div class="card-panel blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title flow-text">New Books</span>
-            <p>New books on the New York Times best sellers list.</p>
-          </div>
-          <div class="card-action">
-            <a href="#" id="link-new-nyt">View New York Times Selections</a>
-          </div>
-        </div>
-      </div>
-      <!-- Classic Books -->
-      <div class="col s12 m4">
-        <div class="card-panel blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title flow-text">Classic Books</span>
-            <p>Noteworthy literature meriting reading and lasting recognition.</p>
-          </div>
-          <div class="card-action">
-            <a href="#" id="link-classic">View Classic Book Selections</a>
-          </div>
-        </div>
-      </div>
-      <!-- Children's Books -->
-      <div class="col s12 m4">
-        <div class="card-panel blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title flow-text">Children's Books</span>
-            <p>A selection of popular children's fiction books for your children and the following generation(s).</p>
-          </div>
-          <div class="card-action">
-            <a href="#" id="link-children">View Children's Book Selections</a>
-          </div>
+    <div class="parallax"><img src="/assets/img/books2.jpg" alt="Background Img 2"></div>
+  </div>
+
+  <!-- Contact Information -->
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Contact Us</h4>
+          <p class="left-align light">Contact Information</p>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="parallax-container valign-wrapper">
-  <div class="section no-pad-bot">
-    <div class="container">
-      <div class="row center">
-        <h5 class="header col s12 light">Put a famous author quote?</h5>
-      </div>
-    </div>
-  </div>
-  <div class="parallax"><img src="books2.jpg" alt="Background Img 2"></div>
-</div>
-
-<!-- Contact Information -->
-<div class="container">
-  <div class="section">
-    <div class="row">
-      <div class="col s12 center">
-        <h3><i class="mdi-content-send brown-text"></i></h3>
-        <h4>Contact Us</h4>
-        <p class="left-align light">Contact Information</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 </main>
-
-<!-- Top 9 Page -->
-<main class="hidden" id="top-9">
-
-</main>
-
-<!-- Social Justice Page -->
-<main class="hidden" id="social-justice">
-
-</main>
-
-<!-- Fantasy Page -->
-<main class="hidden" id="fantasy">
-
-</main>
-
-<!-- New NYT Page -->
-<main class="hidden" id="new-nyt">
-
-</main>
-
-<!-- Classic Page -->
-<main class="hidden" id="classic">
-
-</main>
-
-<!-- Children's Page -->
-<main class="hidden" id="children">
-
-</main>
-
 
 <!-- Footer for every page -->
 <footer class="page-footer blue-grey darken-1">

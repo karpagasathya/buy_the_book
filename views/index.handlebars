@@ -29,9 +29,16 @@
       <br><br>
     </div>
   </div>
-<<<<<<< HEAD
   <div class="parallax"><img src="books1.jpg" alt="Background img 1"></div>
 </div>
+{{#each Author}}
+  <h1>id: {{dataValues.id}}</h1>
+  <h3>fisrtName: {{dataValues.firstName}}</h3>
+  <h3>lastName: {{dataValues.lastName}}</h3>
+
+{{else}}
+  <p>no books available</p>
+{{/each}}
 
 <div class="container">
   <div class="section">
@@ -46,36 +53,6 @@
           </div>
           <div class="card-action">
             <a href="#" id="link-top-9">View Top 9 Book Selections</a>
-=======
-
-
-{{#each index}}
-  <h1>book_title: {{title}}</h1>
-  <h3>genre: {{genre}}</h3>
-  <h3>description: {{bookDescription}}</h3>
-
-{{else}}
-  <p>no books available</p>
-{{/each}}
-
-
-
-
-  <div class="container">
-    <div class="section">
-      <!-- Book Genres Row 1-->
-      <div class="row">
-        <!-- Top 9 -->
-        <div class="col s12 m4">
-          <div class="card-panel blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title flow-text">Top 9 Books</span>
-              <p>This top 9 list of books is derived from the top 100 recommended books to read within your lifetime.</p>
-            </div>
-            <div class="card-action">
-              <a href="#" id="link-top-9">View Top 9 Book Selections</a>
-            </div>
->>>>>>> origin
           </div>
         </div>
       </div>

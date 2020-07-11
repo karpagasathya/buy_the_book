@@ -12,7 +12,8 @@ module.exports = function (sequelize, DataTypes) {
         },
         quantity: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            defaultValue: '1'
         },
         price: {
             type: DataTypes.DECIMAL,

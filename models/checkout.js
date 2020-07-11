@@ -29,7 +29,11 @@ module.exports = function (sequelize, DataTypes) {
         zipCode: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        subTotal: {
+            type: DataTypes.DECIMAL,
+            allowNull: false 
+        },
     }, {
         freezeTableName: true
     });

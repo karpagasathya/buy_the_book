@@ -19,7 +19,7 @@
 
   <div id="home-banner" class="parallax-container">
     <div class="section no-pad-bot">
-      <div class="conatiner">
+      <div class="container">
         <br><br>
         <h3 class="header center light">An Online Bookstore <span class="fa fa-book"></span></h3>
         <div class="row center">
@@ -33,16 +33,28 @@
   </div>
 
 
-{{#each index}}
-  <h1>book_title: {{title}}</h1>
-  <h3>genre: {{genre}}</h3>
-  <h3>description: {{bookDescription}}</h3>
+{{#each Book}}
+  <h1>book_title: {{dataValues.title}}</h1>
+  <h3>genre: {{dataValues.genre}}</h3>
+  <h3>description: {{dataValues.bookDescription}}</h3>
 
 {{else}}
   <p>no books available</p>
 {{/each}}
 
 
+<ul class="list">
+      <li class="waves-effect">
+        <div class="valign-wrapper">
+          <div class="title">
+           
+            {{category}}
+          </div>
+         
+        </div>
+      </li>
+      
+    </ul>
 
 
   <div class="container">
@@ -128,7 +140,7 @@
     </div>
   </div>
 
-  <div class="parallax-container valign-wrapper">
+  <div class="parallax-container align-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">

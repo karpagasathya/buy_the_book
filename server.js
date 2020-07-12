@@ -20,6 +20,7 @@ app.set("view engine", "handlebars");
 
 console.log("going to html route");
 app.use("/", require("./routes/html-routes"));
+app.use("/cart", require("./routes/html-routes"));
 
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {

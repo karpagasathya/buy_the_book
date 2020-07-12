@@ -5,6 +5,7 @@
       <div class="collection">
         {{#each cart}}
           <li class="collection-item"></li>
+          <span>{{dataValues.bookId}}</span>
           <span>{{dataValues.quantity}}</span>
           <span class="label label-success">$ {{dataValues.price}}</span>
         {{/each}}

@@ -7,7 +7,6 @@ module.exports = function (app) {
     }
 
     const cart = await db.Cart.create({
-      quantity: req.body.quantity,
       price: book.dataValues.price
     });
 

@@ -18,6 +18,8 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+require("./routes/cart-api-routes")(app);
+
 console.log("going to html route");
 app.use("/", require("./routes/html-routes"));
 app.use("/cart", require("./routes/html-routes"));

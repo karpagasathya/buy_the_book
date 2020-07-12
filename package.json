@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint **/*.js --quiet",
+    "lint": "./node_modules/.bin/eslint \"**/*.js \"",
     "test": "npm run lint"
   },
   "repository": {
@@ -19,14 +19,17 @@
   },
   "homepage": "https://github.com/karpagasathya/MVC_Project2#readme",
   "dependencies": {
-    "@handlebars/allow-prototype-access": "^1.0.3",
+    "@handlebars/allow-prototype-access": "^1.0.3",    
     "eslint": "^7.4.0",
+    "eslint-plugin-import": "^2.22.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.0.0",
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.0"
   },
   "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-plugin-import": "^2.22.0",
     "handlebars": "^4.5.0",
     "nodemon": "^2.0.4"
   }

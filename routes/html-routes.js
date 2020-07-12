@@ -5,18 +5,17 @@ var Sequelize = require("sequelize");
 const db = require("../models");
 
 router.get("/", (req, res) => {
-    // fetching random 9 books to display in index page
-    const allBooks = db.Book.findAll({ limit: 9, order: Sequelize.literal("rand()") });
-    const distinctCategory = db.Book.aggregate("genre", "DISTINCT", { plain: false });
-    
-    Promise.all([allBooks, distinctCategory])
-        .then((responses) => {
-        res.render("index", {
-          books: responses[0],
-          categories: responses[1],
-        });
-      })
-      .catch((err) => console.log(err));
+  // fetching random 9 books to display in index page
+  const allBooks = db.Book.findAll({ limit: 9, order: Sequelize.literal("rand()") });
+  const distinctCategory = db.Book.aggregate("genre", "DISTINCT", { plain: false });
+  Promise.all([allBooks, distinctCategory])
+    .then((responses) => {
+      res.render("index", {
+        books: responses[0],
+        categories: responses[1],
+      });
+    })
+    .catch((err) => console.log(err));
 });
 
 router.post("/category/:categoryName", (req, res) => {
@@ -53,7 +52,6 @@ router.get("/cart", (req, res) => {
 
   Promise.all([cartItems])
     .then((responses) => {
-      console.log(responses[0])
       res.render("cart", {
         cart: responses[0],
       });

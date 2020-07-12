@@ -11,6 +11,14 @@ p {
   color: white;
 }
 
+#cart {
+  margin-right: 15px;
+}
+
+.dropdown-content {
+  width: max-content;
+}
+
 .parallax-container {
   min-height: 380px;
   line-height: 0;

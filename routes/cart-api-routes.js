@@ -30,10 +30,5 @@ module.exports = function (app) {
             book: book
         });
             console.log(carts);
-          
-
-            
-           
-        
     });
 }

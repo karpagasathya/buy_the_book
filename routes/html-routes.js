@@ -52,6 +52,7 @@ router.get("/cart", (req, res) => {
 
   Promise.all([cartItems])
     .then((responses) => {
+      console.log(responses[0]);
       res.render("cart", {
         cart: responses[0],
       });

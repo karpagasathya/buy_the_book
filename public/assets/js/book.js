@@ -13,6 +13,7 @@ $(document).ready(function() {
       .then(function(data) {
       // Log the data we found
         console.log(data);
+        location.reload();
       });
   });
 });

@@ -11,7 +11,7 @@ module.exports = function (app) {
     });
 
     cart.addBook(book);
-    console.log(book);
+    //console.log(book);
     res.json({
       ...cart.dataValues,
       book: book
@@ -21,11 +21,11 @@ module.exports = function (app) {
   app.get("/api/cart",async function (req, res) {
     const book = await db.Book.findByPk(req.body.bookId);
     console.log(book);
-    const carts = await db.Cart.findAll({})
+    const carts = await db.Cart.findAll({});
     res.json({
       cart:carts,
       book: book
     });
-    console.log(carts);
+    //console.log(carts);
   });
 };

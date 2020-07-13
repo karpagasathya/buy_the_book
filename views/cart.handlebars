@@ -1,17 +1,18 @@
 {{#if cart }}
-
 <div class="row">
     <div class="col s12 m4 l3">
-      <div class="collection">
+      <div class="collection">  
         {{#each cart}}
-          <li class="collection-item"></li>
-          <span>{{dataValues.quantity}}</span>
-          <span class="label label-success">$ {{dataValues.price}}</span>
-        {{/each}}
+          <li class="collection-item">
+          {{#each dataValues.Books}}
+            <span class="label label-success">{{dataValues.title}}</span>
+          {{/each}}
+          <span class="label label-success">$ {{dataValues.price}}</span></li>
+        {{/each}} 
       </div>
     </div>
 <div class="row">
-	<div class="col s12 m5 l3">
+	<div class="col s12 m5 l3"> 
 		<a href="/checkout" class="btn btn-success">Checkout</a>
 	</div>
 </div>

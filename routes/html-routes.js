@@ -1,6 +1,9 @@
 let express = require("express");
 let router = express.Router();
 var Sequelize = require("sequelize");
+let accounting= require("accounting");
+var lodash= require("lodash");
+
 
 const db = require("../models");
 
@@ -52,9 +55,14 @@ router.get("/cart", (req, res) => {
 
   Promise.all([cartItems])
     .then((responses) => {
-      console.log(responses[0]);
+      const cart = lodash.map(responses[0], (response) => {
+        const dataValues = response.dataValues;
+        dataValues.price = accounting.formatMoney(dataValues.price);
+        return response;
+      });
+      console.log(cart);
       res.render("cart", {
-        cart: responses[0],
+        cart: cart
       });
     })
     .catch((err) => console.log(err));

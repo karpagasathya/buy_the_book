@@ -28,7 +28,11 @@
 						<a id="logo-container" href="/" class="brand-logo white-text">Buy the Book!</a>
 						<ul class="right hide-on-med-and-down">
 							<li><a href="#">Navbar Link Search?</a></li>
-							<li><a href="/cart"><i class="fas fa-shopping-cart" id="cartIcon"></i></a></li>
+							<li>
+								<a href="/cart"><i class="fas fa-shopping-cart" id="cartIcon"></i>
+									<span class="notification-badge">{{cartCount}}</span>
+								</a>
+							</li>
 						</ul>
 						{{!-- <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a> --}}
 					</div>

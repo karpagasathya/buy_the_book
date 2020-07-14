@@ -2,11 +2,12 @@ let express = require("express");
 let router = express.Router();
 var Sequelize = require("sequelize");
 let accounting= require("accounting");
-var lodash= require("lodash");
+let lodash= require("lodash");
 
 
 const db = require("../models");
 
+//index route
 router.get("/", (req, res) => {
   // fetching random 9 books to display in index page
   const allBooks = db.Book.findAll({
@@ -15,16 +16,22 @@ router.get("/", (req, res) => {
     include: [db.Author]
   });
   const distinctCategory = db.Book.aggregate("genre", "DISTINCT", { plain: false });
-  Promise.all([allBooks, distinctCategory])
+
+  const cartCount = db.Cart.count();
+
+  Promise.all([allBooks, distinctCategory, cartCount])
     .then((responses) => {
       res.render("index", {
         books: responses[0],
         categories: responses[1],
+        cartCount: responses[2],
       });
     })
     .catch((err) => console.log(err));
 });
 
+
+//category route
 router.post("/category/:categoryName", (req, res) => {
   const booksByCategory = db.Book.findAll({
     where: {
@@ -34,8 +41,8 @@ router.post("/category/:categoryName", (req, res) => {
   });
 
   const distinctCategory = db.Book.aggregate("genre", "DISTINCT", { plain: false });
-
-  Promise.all([booksByCategory, distinctCategory])
+  const cartCount = db.Cart.count();
+  Promise.all([booksByCategory, distinctCategory, cartCount])
     .then((responses) => {
       res.render("category", {
         books: responses[0],
@@ -45,6 +52,7 @@ router.post("/category/:categoryName", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+//cart route
 router.get("/cart", (req, res) => {
   const cartItems = db.Cart.findAll({
     include: [

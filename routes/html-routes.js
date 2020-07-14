@@ -1,6 +1,5 @@
 let express = require("express");
 let router = express.Router();
-var Sequelize = require("sequelize");
 let accounting= require("accounting");
 let lodash= require("lodash");
 
@@ -12,7 +11,6 @@ router.get("/", (req, res) => {
   // fetching random 9 books to display in index page
   const allBooks = db.Book.findAll({
     limit: 9,
-    order: Sequelize.literal("rand()"),
     include: [db.Author]
   });
   const distinctCategory = db.Book.aggregate("genre", "DISTINCT", { plain: false });
@@ -41,12 +39,15 @@ router.post("/category/:categoryName", (req, res) => {
   });
 
   const distinctCategory = db.Book.aggregate("genre", "DISTINCT", { plain: false });
+
   const cartCount = db.Cart.count();
+
   Promise.all([booksByCategory, distinctCategory, cartCount])
     .then((responses) => {
       res.render("category", {
         books: responses[0],
         categories: responses[1],
+        cartCount: responses[2],
       });
     })
     .catch((err) => console.log(err));

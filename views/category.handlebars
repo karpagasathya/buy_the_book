@@ -22,12 +22,14 @@
               <img src="/assets/img/card_image.jpeg">
             </div>
             <div class="card-content">
-              <span class="card-title">{{dataValues.title}}</span>
-              <p>By: </p>
+              <p class="card-title">{{dataValues.title}}</p>
+              <p>By: {{dataValues.Author.dataValues.firstName}} {{dataValues.Author.dataValues.lastName}}</p>
               <p>Price: ${{dataValues.price}}</p>
             </div>
             <div class="card-action">
-              <a class="waves-effect waves-light btn-small" id="cartButton">Add to Cart</a>
+              <a class="waves-effect waves-light btn-small" 
+                value={{dataValues.id}}
+                id="cartButton">Add to Cart</a>
             </div>
           </div>
         </div>

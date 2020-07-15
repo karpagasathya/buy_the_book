@@ -15,20 +15,20 @@
       <div class="card-action">
         <a class="blue-grey waves-effect waves-light btn-small cart-button" value={{dataValues.id}} id="cart-button">Add
           to Cart</a>
-        <a class="blue-grey waves-effect waves-light btn-small modal-trigger right-align" href="#modal1">...</a>
+        <a class="blue-grey waves-effect waves-light btn-small modal-trigger right-align" href="{{dataValues.modalhref}}">...</a>
       </div>
       <!-- Modal Structure -->
-      <div id="modal1" class="modal">
+      <div id="{{dataValues.modalId}}" class="modal">
         <div class="row">
-          <div class="modal-content col s6">
-            <span class="modal-content"><strong>Description:</strong></span><br>
+          <div class="modal-content">
+            <span class="modal-content"><strong>Description</strong></span><br>
             <span class="modal-content">{{dataValues.bookDescription}}</span><br>
             <span class="modal-content"><strong>Genre:</strong>{{dataValues.genre}}</span><br>
             <span class="modal-content"><strong>Publication year:</strong>{{dataValues.pubYear}}</span><br>
             <span class="modal-content"><strong>Availability:</strong>{{dataValues.inventory}}</span>
           </div>
           <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">X</a>
           </div>
         </div>
       </div>

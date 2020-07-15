@@ -21,6 +21,8 @@ router.get("/", async (req, res) => {
       const books = lodash.map(responses[0], (response) => {
         const dataValues = response.dataValues;
         dataValues.price = accounting.formatMoney(dataValues.price);
+        dataValues.modalhref = "#modal-book-" + dataValues.id;
+        dataValues.modalId = "modal-book-" + dataValues.id;
         return response;
       });
       console.log(books);
@@ -52,6 +54,8 @@ router.post("/category/:categoryName", (req, res) => {
       const category = lodash.map(responses[0], (response) => {
         const dataValues = response.dataValues;
         dataValues.price = accounting.formatMoney(dataValues.price);
+        dataValues.modalhref = "#modal-book-" + dataValues.id;
+        dataValues.modalId = "modal-book-" + dataValues.id;
         return response;
       });
       console.log(category);

@@ -1,23 +1,37 @@
 
-<div class="row container">
-  <br>
-  {{#if cart }}
-  <div class="col s6 offset-s3">
-    <ul class="collection with-header">
-      <li class="collection-header center-align">
-        <h5>Items in Your Cart</h5>
-      </li>
-      {{#each cart}}
-      <li class="collection-item">
-        {{#each dataValues.Books}}
-        <span class="label label-success">{{dataValues.title}}</span>
-        {{/each}}
-        <span class="label label-success right">{{dataValues.price}}</span>
-        {{/each}}
-      </li>
-    </ul>
+{{#if cart }}  
+    <div class="row">
+      <div class="col s6 offset-s3">
+          <h5> Added to the cart successfully</h5>
+        <table>
+          <tbody>
+            {{#each cart}}
+              <tr>
+                <td><img src="/assets/img/card_image.jpeg" width="100" height="100"></td>
+                <td>
+                  {{#each dataValues.Books}}
+                    <span class="label label-success">{{dataValues.title}}</span>
+                  {{/each}}
+                </td>
+                <td>
+                  <span class="label label-success right-align">{{dataValues.price}}</span>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>    
+      </div>
+      <div class="row">
+        <div class="col s12 m5 l3">
+          {{input name="firstName" placeholder="enter name" value=firstName}}
+        </div>
+      </div>
+      {{ else }}
+      <div class="row">
+        <div class="text-center">
+          <h4>No items in Cart</h4>
+        </div>
+    </div>
   </div>
-  {{ else }}
-    <p>There are no items in your cart. Go find a book!</p>
-  {{/if }}
-</div>
+
+{{/if }}

@@ -3,19 +3,18 @@ let router = express.Router();
 let accounting= require("accounting");
 let lodash= require("lodash");
 
-
 const db = require("../models");
 
 //index route
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   // fetching random 9 books to display in index page
-  const allBooks = db.Book.findAll({
+  const allBooks = await db.Book.findAll({
     limit: 9,
     include: [db.Author]
   });
-  const distinctCategory = db.Book.aggregate("genre", "DISTINCT", { plain: false });
+  const distinctCategory = await db.Book.aggregate("genre", "DISTINCT", { plain: false });
 
-  const cartCount = db.Cart.count();
+  const cartCount = await db.Cart.count();
 
   Promise.all([allBooks, distinctCategory, cartCount])
     .then((responses) => {
@@ -78,16 +77,21 @@ router.get("/cart", (req, res) => {
     ],
   });
 
-  Promise.all([cartItems])
+  const distinctCategory = db.Book.aggregate("genre", "DISTINCT", { plain: false });
+
+  const cartCount = db.Cart.count();
+
+  Promise.all([cartItems, distinctCategory, cartCount])
     .then((responses) => {
       const cart = lodash.map(responses[0], (response) => {
         const dataValues = response.dataValues;
         dataValues.price = accounting.formatMoney(dataValues.price);
         return response;
       });
-      //console.log(cart);
       res.render("cart", {
-        cart: cart
+        cart: cart,
+        categories: responses[1],
+        cartCount: responses[2],
       });
     })
     .catch((err) => console.log(err));

@@ -1,7 +1,6 @@
 -- Use JAWS_DB
 USE zm03bn07x5wf2337;
 
-
 -- Insert Books into Book Table
 INSERT INTO Book(title,genre,pubYear,price,inventory,bookDescription,createdAt,updatedAt,AuthorId) 
 

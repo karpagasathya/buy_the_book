@@ -1,6 +1,11 @@
 -- Use JAWS_DB
 USE zm03bn07x5wf2337;
 
+/**
+on your local machine, use the following:
+USE bookstore_db;
+**/
+
 -- Insert Books into Book Table
 INSERT INTO Book(title,genre,pubYear,price,inventory,bookDescription,createdAt,updatedAt,AuthorId) 
 

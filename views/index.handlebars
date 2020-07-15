@@ -1,24 +1,39 @@
 <div class="row container">
   <br>
   {{#each books}}
-    <div class="col s12 m6 l4">
-      <div class="card">
-        <div class="card-image">
-          <img class="images" src="/assets/img/card_image.jpeg">
-          <span class="card-title">{{dataValues.title}}</span>
-        </div>
-        <div class="card-content">
-          <p>By: {{dataValues.Author.dataValues.firstName}} {{dataValues.Author.dataValues.lastName}}</p>
-          <p>Price: {{dataValues.price}}</p>
-        </div>
-        <div class="divider brown lighten-3"></div>
-        <div class="card-action">
-          <a class="blue-grey waves-effect waves-light btn-small cart-button"
-              value={{dataValues.id}}
-              id="cart-button">Add to Cart</a>
+  <div class="col s12 m6 l4">
+    <div class="card">
+      <div class="card-image">
+        <img class="images" src="/assets/img/card_image.jpeg">
+        <span class="card-title">{{dataValues.title}}</span>
+      </div>
+      <div class="card-content">
+        <p>By: {{dataValues.Author.dataValues.firstName}} {{dataValues.Author.dataValues.lastName}}</p>
+        <p>Price: {{dataValues.price}}</p>
+      </div>
+      <div class="divider brown lighten-3"></div>
+      <div class="card-action">
+        <a class="blue-grey waves-effect waves-light btn-small cart-button" value={{dataValues.id}} id="cart-button">Add
+          to Cart</a>
+        <a class="blue-grey waves-effect waves-light btn-small modal-trigger right-align" href="#modal1">...</a>
+      </div>
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="row">
+          <div class="modal-content col s6">
+            <span class="modal-content"><strong>Description</strong></span><br>
+            <span class="modal-content">{{dataValues.bookDescription}}</span><br>
+            <span class="modal-content"><strong>Genre:</strong>{{dataValues.genre}}</span><br>
+            <span class="modal-content"><strong>Publication year:</strong>{{dataValues.pubYear}}</span><br>
+            <span class="modal-content"><strong>Availability:</strong>{{dataValues.inventory}}</span>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
         </div>
       </div>
     </div>
+  </div>
   {{else}}
   <p>no books available</p>
   {{/each}}

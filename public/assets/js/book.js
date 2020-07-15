@@ -1,7 +1,7 @@
 /* eslint-env jquery */
 console.log("javascript file");
 $(document).ready(function() {
-  $(".cartButton").on("click", function(event) {
+  $(".cart-button").on("click", function(event) {
     event.preventDefault();
     var cart = {
       bookId: Number($(this).attr("value"))

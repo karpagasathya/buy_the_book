@@ -7,12 +7,54 @@ p {
   line-height: 2rem;
 }
 
+body {
+  /*background-image: url("/assets/img/pages1.jpg");
+  background-repeat: repeat;*/
+  
+}
+
+.card-title {
+  padding-bottom: 5px !important;
+  font-size: 18px !important;
+}
+
+.card-content {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
 .sidenav-trigger {
   color: white;
 }
+/* Important */
+#nav {
+  position: fixed;
+  z-index: 996;
+}
+/* Important */
+#menu-slide-out {
+  padding-top: 10px;
+  z-index: 999;
+}
 
+#buttons {
+  width: 200px;
+}
+/* Important */
 #cart {
-  margin-right: 15px;
+  margin: 0 15px 0 7px;
+}
+
+#home {
+  margin: 0 7px 0 15px;
+}
+
+.images {
+  filter: brightness(50%);
+}
+
+.categories {
+  padding-top: 10px;
 }
 
 .dropdown-content {
@@ -32,6 +74,16 @@ p {
 .hidden {
   display: none;
 }
+
+/*.notification-badge {
+  position: relative;
+  right: 0px;
+  top: -10px;
+  color: #941e1e;
+  background-color: #f5f1f2;
+  border-radius: 50%;
+  padding: 5px 10px;
+}*/
 
 
 @media only screen and (max-width : 992px) {
@@ -57,6 +109,14 @@ p {
 footer.page-footer {
   margin: 0;
 }
-#bookPrice {
-text-align: right;
+
+
+.notification-badge {
+    position: relative;
+    right: 5px;
+    top: -20px;
+    color: #941e1e;
+    background-color: #f5f1f2;
+    border-radius: 50%;
+    padding: 5px 10px;
 }

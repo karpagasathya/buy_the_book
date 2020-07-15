@@ -1,3 +1,7 @@
+/**
+On your local machine, replace 'zm03bn07x5wf2337' with 'bookstore_db'
+**/
+
 -- Use JAWS_DB Database
 USE zm03bn07x5wf2337;
 
@@ -35,4 +39,6 @@ CREATE TABLE `zm03bn07x5wf2337`.`Cart` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `quantity` INT NOT NULL,
   `price` DECIMAL(13,2) NOT NULL,
+  `createdAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));

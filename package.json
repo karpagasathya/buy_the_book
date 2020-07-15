@@ -21,6 +21,10 @@
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
     "accounting": "^0.4.1",
+<<<<<<< HEAD
+=======
+    "currency-formatter": "^1.5.5",
+>>>>>>> 25279a696e7f34551a01a23a6f1d7ee1a563246b
     "eslint": "^7.4.0",
     "eslint-plugin-import": "^2.22.0",
     "express": "^4.17.1",

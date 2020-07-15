@@ -109,3 +109,14 @@ body {
 footer.page-footer {
   margin: 0;
 }
+
+
+.notification-badge {
+    position: relative;
+    right: 5px;
+    top: -20px;
+    color: #941e1e;
+    background-color: #f5f1f2;
+    border-radius: 50%;
+    padding: 5px 10px;
+}

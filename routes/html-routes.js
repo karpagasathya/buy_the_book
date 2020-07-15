@@ -19,6 +19,12 @@ router.get("/", (req, res) => {
 
   Promise.all([allBooks, distinctCategory, cartCount])
     .then((responses) => {
+      const books = lodash.map(responses[0], (response) => {
+        const dataValues = response.dataValues;
+        dataValues.price = accounting.formatMoney(dataValues.price);
+        return response;
+      });
+      console.log(books);
       res.render("index", {
         books: responses[0],
         categories: responses[1],
@@ -44,6 +50,12 @@ router.post("/category/:categoryName", (req, res) => {
 
   Promise.all([booksByCategory, distinctCategory, cartCount])
     .then((responses) => {
+      const category = lodash.map(responses[0], (response) => {
+        const dataValues = response.dataValues;
+        dataValues.price = accounting.formatMoney(dataValues.price);
+        return response;
+      });
+      console.log(category);
       res.render("category", {
         books: responses[0],
         categories: responses[1],
@@ -73,7 +85,7 @@ router.get("/cart", (req, res) => {
         dataValues.price = accounting.formatMoney(dataValues.price);
         return response;
       });
-      console.log(cart);
+      //console.log(cart);
       res.render("cart", {
         cart: cart
       });

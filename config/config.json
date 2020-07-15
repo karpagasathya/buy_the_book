@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Eswari@1969",
+    "password": "",
     "database": "bookstore_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -14,7 +14,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable":"JAWSDB_URL",
+    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
 }

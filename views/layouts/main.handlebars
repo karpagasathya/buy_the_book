@@ -19,82 +19,88 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 
-	<body>
+	<body class="blue-grey">
 		<header>
 			<!-- Navigation for every page -->
-			<div class="navbar-fixed">
-				<nav class="blue-grey" role="navigation">
-					<div class="nav-wrapper container">
-						<a id="logo-container" href="/" class="brand-logo white-text">Buy the Book!</a>
-						<ul class="right hide-on-med-and-down">
-							<li><a href="#">Navbar Link Search?</a></li>
-							<li>
-								<a href="/cart"><i class="fas fa-shopping-cart" id="cartIcon"></i>
-									<span class="notification-badge">{{cartCount}}</span>
-								</a>
-							</li>
-						</ul>
-						{{!-- <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a> --}}
+			<nav id="nav" class="blue-grey" role="navigation">
+				<div class="nav-wrapper">
+					<a id="logo-container" href="#" class="brand-logo center white-text">Buy the Book!</a>
+					<!-- Keep. This is the side menu. -->
+    				<a href="#" data-target="menu-slide-out" class="sidenav-trigger show-on-medium-and-down show-on-medium-and-up"><i class="material-icons">menu</i></a> 
+					<!-- Keep. This is the home and cart. --> 
+					<a href="/cart" class="right show-on-medium-and-down show-on-medium-and-up">
+						<i id="cart" class="material-icons">shopping_cart</i>
+						<span class="notification-badge">{{cartCount}}</span>
+					</a>
+					<a href="/" class="right show-on-medium-and-down show-on-medium-and-up"><i id="home" class="material-icons">home</i></a>
+				</div>
+			</nav>
+				<!-- The following need to be outside of the nav tags above!! -->
+				<!-- Side menu items -->
+			<nav class="center">
+				<ul id="menu-slide-out" class="sidenav">
+      				<li class="black-text">View By Category</li>
+					<div class="divider"></div>
+					<div class="categories">
+      				{{#each categories}}
+        				<li class="collection-item">
+          					<form method="post" action="/category/{{DISTINCT}}">
+            					<input type="hidden" name="genre" value="{{DISTINCT}}">
+            					<button id="buttons" class="btn blue-grey waves-effect waves-light btn-small" type="submit" name="action">{{DISTINCT}}</button>
+          					</form>
+        				</li>
+      				{{/each}}
 					</div>
-				</nav>
-			</div>
+				</ul>
+			</nav>
 		</header>
 
 		<!-- Home Page -->
 		<main id="home-page">
-			<div id="home-banner" class="parallax-container">
-				<div class="section">
+			<div id="home-banner" class="parallax-container valign-wrapper">
+				<div class="section no-pad-bot">
 					<div class="container">
 						<br><br>
 						<h3 class="header center light">An Online Bookstore <span class="fa fa-book"></span></h3>
 						<div class="row center">
 							<h5 class="header col s12 light">Whether for entertainment, pure enjoyment or to find something to invigorate your minde.</h5>
-							<h5 class="header col s12 light">Browse through the genres below to find your new book!</h5>
+							<h5 class="header col s12 light">Browse through our collection below to find your new book!</h5>
 						</div>
 						<br><br>
 					</div>
 				</div>
-				<div class="parallax"><img src="/assets/img/books1.jpg" alt="Background img 1"></div>
+				<div class="parallax"><img class="images" src="/assets/img/books1.jpg" alt="Background img 1"></div>
 			</div>
 
 			{{{body}}}
 
-			<div id="bottom-banner" class="parallax-container align-wrapper">
-				<div class="section">
+			<div id="bottom-banner" class="parallax-container valign-wrapper">
+				<div class="section no-pad-bot">
 					<div class="container">
 						<div class="row center">
-							<h5 class="header col s12 light">Put a famous author quote?</h5>
+							<h5 class="header col s12 light">"Books are the treasured wealth of the world."</h5>
+							<p>- Henry David Thoreau</p>
 						</div>
 					</div>
 				</div>
-				<div class="parallax"><img src="/assets/img/books2.jpg" alt="Background Img 2"></div>
-			</div>
-		
-			<!-- Contact Information -->
-			<div class="container">
-				<div class="section">
-					<div class="row">
-						<div class="col s12 center">
-							<h3><i class="mdi-content-send brown-text"></i></h3>
-							<h4>Contact Us</h4>
-							<p class="left-align light">Contact Information</p>
-						</div>
-					</div>
-				</div>
+				<div class="parallax"><img class="images" src="/assets/img/books2.jpg" alt="Background Img 2"></div>
 			</div>
 		</main>
 
 		<!-- Footer for every page -->
 		<footer class="page-footer blue-grey darken-1">
 			<div class="container">
-				<div class="row">
-					<div class="col l6 s12">
+				<div class="row center">
+					<div class="col s12">
 						<h5 class="white-text">Company Bio</h5>
-						<p class="grey-text text-lighten-4">We are a team of from the U of M Coding Bootcamp working on this project like it's our full time job.</p>
+						<p class="grey-text text-lighten-4">
+							We are a team from the U of M Coding Bootcamp working on this project like it's our full time job. 
+							Please feel free to contact us <a href="#">here</a> for questions/concerns!
+						</p>
 					</div> 
 				</div>
 			</div>
-			<div class="footer-copyright">
+			<div class="footer-copyright center">
 				<div class="container">Made by <a class="brown-text text-lighten-3">Team Weezer</a></div>
 			</div>
 		</footer>
@@ -103,8 +109,9 @@
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="/assets/js/materialize.js"></script>
 		<script src="/assets/js/init.js"></script>
-		<script src="/assets/js/auth.js" type="text/javascript"></script>
+		<!--<script src="/assets/js/auth.js" type="text/javascript"></script>-->
 		<script src="/assets/js/book.js" type="text/javascript"></script>
+
 
 	</body>
 </html>

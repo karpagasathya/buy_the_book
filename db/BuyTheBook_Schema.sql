@@ -1,7 +1,6 @@
 -- Use JAWS_DB Database
 USE zm03bn07x5wf2337;
 
-
 -- Create Table Author on DB
 CREATE TABLE `zm03bn07x5wf2337`.`Author` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -28,6 +27,7 @@ CREATE TABLE `zm03bn07x5wf2337`.`Book` (
     REFERENCES `zm03bn07x5wf2337`.`Author` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
 
 
 -- Create Table Cart

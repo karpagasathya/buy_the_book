@@ -18,14 +18,14 @@ router.get("/", async (req, res) => {
 
   Promise.all([allBooks, distinctCategory, cartCount])
     .then((responses) => {
-      const books = lodash.map(responses[0], (response) => {
+      lodash.map(responses[0], (response) => {
         const dataValues = response.dataValues;
         dataValues.price = accounting.formatMoney(dataValues.price);
         dataValues.modalhref = "#modal-book-" + dataValues.id;
         dataValues.modalId = "modal-book-" + dataValues.id;
         return response;
       });
-      console.log(books);
+
       res.render("index", {
         books: responses[0],
         categories: responses[1],
@@ -51,14 +51,14 @@ router.post("/category/:categoryName", (req, res) => {
 
   Promise.all([booksByCategory, distinctCategory, cartCount])
     .then((responses) => {
-      const category = lodash.map(responses[0], (response) => {
+      lodash.map(responses[0], (response) => {
         const dataValues = response.dataValues;
         dataValues.price = accounting.formatMoney(dataValues.price);
         dataValues.modalhref = "#modal-book-" + dataValues.id;
         dataValues.modalId = "modal-book-" + dataValues.id;
         return response;
       });
-      console.log(category);
+
       res.render("category", {
         books: responses[0],
         categories: responses[1],
@@ -69,8 +69,8 @@ router.post("/category/:categoryName", (req, res) => {
 });
 
 //cart route
-router.get("/cart", (req, res) => {
-  const cartItems = db.Cart.findAll({
+router.get("/cart", async (req, res) => {
+  const cartItems = await db.Cart.findAll({
     include: [
       {
         model: db.Book,
@@ -81,11 +81,13 @@ router.get("/cart", (req, res) => {
     ],
   });
 
-  const distinctCategory = db.Book.aggregate("genre", "DISTINCT", { plain: false });
+  const distinctCategory = await db.Book.aggregate("genre", "DISTINCT", { plain: false });
 
-  const cartCount = db.Cart.count();
+  const cartCount = await db.Cart.count();
 
-  Promise.all([cartItems, distinctCategory, cartCount])
+  const totalPrice = await db.Cart.sum("price");
+
+  Promise.all([cartItems, distinctCategory, cartCount, totalPrice])
     .then((responses) => {
       const cart = lodash.map(responses[0], (response) => {
         const dataValues = response.dataValues;
@@ -96,6 +98,7 @@ router.get("/cart", (req, res) => {
         cart: cart,
         categories: responses[1],
         cartCount: responses[2],
+        subTotal: responses[3],
       });
     })
     .catch((err) => console.log(err));

@@ -1,5 +1,4 @@
 /* eslint-env jquery */
-console.log("javascript file");
 $(document).ready(function () {
   $(".modal").modal();
   $(".cart-button").on("click", function (event) {
@@ -17,4 +16,9 @@ $(document).ready(function () {
         location.reload();
       });
   });
+
+  $(".checkout-button").on("click", () => {
+    $.delete("/api/cart");
+  });
+
 });

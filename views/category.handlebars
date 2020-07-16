@@ -2,79 +2,47 @@
 <div class="row container">
   <br>
   {{#each books}}
-  <div class="col s12 m6 l4">
-    <a class="modal-trigger" href="{{dataValues.modalhref}}">
-    <div class="card">
-      <div class="card-image">
-        <img class="images" src="/assets/img/card_image.jpeg">
-        <span class="card-title">{{dataValues.title}}</span>
-      </div>
-      <div class="card-content black-text">
-        <p>By: {{dataValues.Author.dataValues.firstName}} {{dataValues.Author.dataValues.lastName}}</p>
-        <p>Price: {{dataValues.price}}</p>
-      </div>
-      <div class="divider brown lighten-3"></div>
-      <div class="card-action">
-        <a class="blue-grey waves-effect waves-light btn-small cart-button" value={{dataValues.id}} id="cart-button">Add to Cart</a>
-        {{!-- <a class="blue-grey waves-effect waves-light btn-small modal-trigger right-align" href="{{dataValues.modalhref}}">...</a> --}}
-      </div>
-      <!-- Modal Structure -->
-      <div id="{{dataValues.modalId}}" class="modal">
-        <div class="row">
-            <div class="modal-content col s4">
-              <img src="/assets/img/card_image.jpeg" width="200" height="200">
-            </div>
-            <div class="col s8">
-              <div class="modal-footer">
-              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><span class="material-icons">close</span></a>
-              </div>
-              <span class="modal-content"><strong>Description:</strong></span><br>
-              <span class="modal-content">{{dataValues.bookDescription}}</span><br><br>
-              <span class="modal-content"><strong>Genre:</strong>{{dataValues.genre}}</span><br><br>
-              <span class="modal-content"><strong>Publication year:</strong>{{dataValues.pubYear}}</span><br><br>
-              <span class="modal-content"><strong>Availability:</strong>{{dataValues.inventory}}</span>
-              <div class="card-action">
-                <a class="blue-grey waves-effect waves-light btn-small cart-button right" value={{dataValues.id}} id="model-button">Add to Cart</a>
-              </div>
-            </div>
-            
+    <div class="col s12 m6 l4">
+      <a class="modal-trigger" href="{{dataValues.modalhref}}">
+        <div class="card">
+          <div class="card-image">
+            <img class="images" src="/assets/img/card_image.jpeg">
+            <span class="card-title">{{dataValues.title}}</span>
           </div>
+          <div class="card-content black-text">
+            <p>By: {{dataValues.Author.dataValues.firstName}} {{dataValues.Author.dataValues.lastName}}</p>
+            <p>Price: {{dataValues.price}}</p>
+          </div>
+          <div class="divider brown lighten-3"></div>
+          <div class="card-action">
+            <a class="blue-grey waves-effect waves-light btn-small cart-button" value={{dataValues.id}} id="cart-button">Add to Cart</a>
+          </div>
+
+          <!-- Modal Structure -->
+          <div id="{{dataValues.modalId}}" class="modal">
+            <div class="row">
+                <div class="modal-content col s4">
+                  <img src="/assets/img/card_image.jpeg" width="200" height="200">
+                </div>
+                <div class="col s8">
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><span class="material-icons">close</span></a>
+                  </div>
+                  <span class="modal-content"><strong>Description:</strong></span><br>
+                  <span class="modal-content">{{dataValues.bookDescription}}</span><br><br>
+                  <span class="modal-content"><strong>Genre:</strong>{{dataValues.genre}}</span><br><br>
+                  <span class="modal-content"><strong>Publication year:</strong>{{dataValues.pubYear}}</span><br><br>
+                  <span class="modal-content"><strong>Availability:</strong>{{dataValues.inventory}}</span>
+                  <div class="card-action">
+                    <a class="blue-grey waves-effect waves-light btn-small cart-button right" value={{dataValues.id}} id="model-button">Add to Cart</a>
+                  </div>
+                </div> 
+              </div>
+            </div>
         </div>
-      </div>
-    </a>
-  </div>
+      </a>
+    </div>
   {{else}}
-  <p>no books available</p>
+    <p>no books available</p>
   {{/each}}
-</div>  
-        
-       
-        
-        {{!-- <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-          <div class="row">
-            <div class="modal-content col s4">
-              <img src="/assets/img/card_image.jpeg" width="200" height="200">
-            </div>
-            <div class="col s8">
-              <div class="modal-footer">
-              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><span class="material-icons">close</span></a>
-              </div>
-              <span class="modal-content"><strong>Description:</strong></span><br>
-              <span class="modal-content">{{dataValues.bookDescription}}</span><br><br>
-              <span class="modal-content"><strong>Genre:</strong>{{dataValues.genre}}</span><br><br>
-              <span class="modal-content"><strong>Publication year:</strong>{{dataValues.pubYear}}</span><br><br>
-              <span class="modal-content"><strong>Availability:</strong>{{dataValues.inventory}}</span>
-              <div class="card-action">
-                <a class="blue-grey waves-effect waves-light btn-small cart-button" value={{dataValues.id}} id="cart-button">Add to Cart</a>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-  {{else}}
-  <p>no books available</p>
-  {{/each}} --}}
+</div>     

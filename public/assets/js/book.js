@@ -1,7 +1,7 @@
 /* eslint-env jquery */
-console.log("javascript file");
-$(document).ready(function() {
-  $(".cart-button").on("click", function(event) {
+$(document).ready(function () {
+  $(".modal").modal();
+  $(".cart-button").on("click", function (event) {
     event.preventDefault();
     var cart = {
       bookId: Number($(this).attr("value"))
@@ -9,11 +9,16 @@ $(document).ready(function() {
 
     // Send an AJAX POST-request with jQuery
     $.post("/api/cart", cart)
-    // On success, run the following code
-      .then(function(data) {
-      // Log the data we found
+      // On success, run the following code
+      .then(function (data) {
+        // Log the data we found
         console.log(data);
         location.reload();
       });
   });
+
+  $(".checkout-button").on("click", () => {
+    $.post("/api/cart/delete");
+  });
+
 });

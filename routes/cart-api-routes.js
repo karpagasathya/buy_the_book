@@ -11,7 +11,6 @@ module.exports = function (app) {
     });
 
     cart.addBook(book);
-    //console.log(book);
     res.json({
       ...cart.dataValues,
       book: book
@@ -26,6 +25,9 @@ module.exports = function (app) {
       cart:carts,
       book: book
     });
-    //console.log(carts);
+  });
+
+  app.post("/api/cart/delete", async () => {
+    await db.Cart.destroy({ where: {}, truncate: false });
   });
 };

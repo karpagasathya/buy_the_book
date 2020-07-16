@@ -12,6 +12,9 @@ body {
   background-repeat: repeat;*/
   
 }
+.table-data {
+  vertical-align: top;
+}
 
 .card-title {
   padding-bottom: 5px !important;
@@ -42,7 +45,7 @@ body {
 }
 /* Important */
 #cart {
-  margin: 0 15px 0 7px;
+  margin: 0 -10px 0 10px;
 }
 
 #home {
@@ -75,15 +78,21 @@ body {
   display: none;
 }
 
-/*.notification-badge {
-  position: relative;
-  right: 0px;
-  top: -10px;
-  color: #941e1e;
-  background-color: #f5f1f2;
-  border-radius: 50%;
-  padding: 5px 10px;
-}*/
+
+.notification-badge {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    right: auto;
+    top: -30px;
+    border-radius: 50px; 
+    text-align: center;
+    position: sticky;
+}
+
+#model-button{
+  margin-right: 25px;
+}
 
 
 @media only screen and (max-width : 992px) {
@@ -108,15 +117,4 @@ body {
 
 footer.page-footer {
   margin: 0;
-}
-
-
-.notification-badge {
-    position: relative;
-    right: 5px;
-    top: -20px;
-    color: #941e1e;
-    background-color: #f5f1f2;
-    border-radius: 50%;
-    padding: 5px 10px;
 }

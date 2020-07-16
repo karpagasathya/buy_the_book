@@ -18,7 +18,10 @@ $(document).ready(function () {
   });
 
   $(".checkout-button").on("click", () => {
-    $.post("/api/cart/delete");
+    $.ajax({
+      url: "/api/cart/delete",
+      type: "DELETE"
+    });
   });
 
 });

@@ -34,8 +34,8 @@ What better way to pass this time, than by diving into a Book? As Nora Ephron sa
 * At first, you'll be presented with a selection of our curated collection
 * Select a Book to see the Description and Availability
 * Click &#9776;   to view and choose from our categories
-* Add a Book to Cart, feel free to pick more than one!
-* Checkout
+* Add a Book to Cart -- feel free to pick more than one!
+* Check out what's in your Cart :shopping_cart:, and Checkout to complete your order
 * Click :house: or **Buy the Book!** to get back home
 
 

@@ -1,5 +1,7 @@
+"use strict";
+
 module.exports = function (sequelize, DataTypes) {
-  var Checkout = sequelize.define(
+  const Checkout = sequelize.define(
     "Checkout",
     {
       id: {

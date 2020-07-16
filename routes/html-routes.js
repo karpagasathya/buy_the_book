@@ -1,9 +1,11 @@
-let express = require("express");
-let router = express.Router();
-let accounting= require("accounting");
-let lodash= require("lodash");
+"use strict";
 
+const express = require("express");
+const router = express.Router();
+const accounting= require("accounting");
+const lodash= require("lodash");
 const db = require("../models");
+
 
 //index route
 router.get("/", async (req, res) => {

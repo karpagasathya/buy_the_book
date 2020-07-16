@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "9tjeZmfhVxlUfqInR@2T",
     "database": "bookstore_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "9tjeZmfhVxlUfqInR@2T",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"

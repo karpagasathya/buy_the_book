@@ -1,4 +1,6 @@
-var db = require("../models");
+"use strict";
+
+const db = require("../models");
 module.exports = function (app) {
   app.post("/api/cart", async function (req, res) {
     const book = await db.Book.findByPk(req.body.bookId);

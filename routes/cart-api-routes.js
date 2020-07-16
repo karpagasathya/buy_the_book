@@ -29,7 +29,7 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/api/cart/delete", async () => {
+  app.delete("/api/cart/delete", async () => {
     await db.Cart.destroy({ where: {}, truncate: false });
   });
 };

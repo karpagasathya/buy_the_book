@@ -1,12 +1,14 @@
-let express = require("express");
-let exphbs = require("express-handlebars");
+"use strict";
+
+const express = require("express");
+const exphbs = require("express-handlebars");
 
 // Requiring our models for syncing
-let db = require("./models");
+const db = require("./models");
 
-let PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
-let app = express();
+const app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));

@@ -1,5 +1,7 @@
+"use strict";
+
 module.exports = function (sequelize, DataTypes) {
-  var Author = sequelize.define(
+  const Author = sequelize.define(
     "Author",
     {
       id: {

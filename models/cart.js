@@ -1,5 +1,7 @@
+"use strict";
+
 module.exports = function (sequelize, DataTypes) {
-  var Cart = sequelize.define(
+  const Cart = sequelize.define(
     "Cart",
     {
       id: {

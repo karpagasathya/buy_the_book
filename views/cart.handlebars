@@ -1,49 +1,43 @@
-<div class="container">
-  <div class="row">
-    <div class="col l8">
-      <div class="card">
-        <div class="card-content">
-          <h5 class="center">Your cart ({{cartCount}} Item)</h5>
-          <br>
-          <table>
-            <tbody>
-              {{#each cart}}
-                <tr>
-                  <td class="table-data"><img src="/assets/img/card_image.jpeg" width="100" height="100"></td>
-                  <td class="table-data">
-                    {{#each dataValues.Books}}
-                      <span class="label label-success">{{dataValues.title}}</span>
-                    {{/each}}
-                  </td class="table-data">
-                  <td class="table-data"><span class="label label-success">{{dataValues.price}}</span></td>
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>    
-        </div>
+<div class="row">
+  <br>
+    <div class="col s12 m8 push-m2 l6 push-l1 xl5 push-xl2">
+      <ul class="collection with-header">
+        <li class="collection-header center">
+          <h5 class="center">Your Cart ({{cartCount}} Item(s))</h5>
+        </li>
+        {{#each cart}}
+        <li class="collection-item avatar" id="cart-items">
+          <i class="circle brown lighten-3 fa fa-book"></i>
+          {{#each dataValues.Books}}
+          <span class="title">{{dataValues.title}}</span>
+          {{/each}}
+          <p style="padding-left: 15px;">{{dataValues.price}}</p>
+          {{/each}}
+        </li>
+      </ul>   
+    </div>
+  {{#if cart}} 
+    <div class="col s8 push-s2 m6 push-m3 l4 push-l1 xl3 push-xl2">
+      <ul class="collection with-header">
+        <li class="collection-header center">
+          <h5>Order Summary</h5>
+        </li>
+        <li class="collection-item center">
+          <span>Total: ${{subTotal}}</span>
+        </li>
+        <li class="collection-item center">
+          <a class="blue-grey waves-effect waves-light btn-small modal-trigger checkout-button" href="#checkout-modal">Checkout</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+      <div class="modal-content">
+        <h4>Your order is placed!</h4>
+      </div>
+      <div class="modal-footer">
+        <a href="/" class="modal-close waves-effect waves-green btn-flat">Close</a>
       </div>
     </div>
-    {{#if cart }} 
-      <div class="col l4">
-        <div class="card">
-          <div class="card-content">
-            <h5 class="center">Order Summary</h5>
-            <br>
-            <p>Total: <span class="right">${{subTotal}}</span></p>
-          </div>
-          <div class="card-action center">
-            <a class="blue-grey waves-effect waves-light btn-small modal-trigger checkout-button" href="#checkout-modal">Checkout</a>
-          </div>
-          <div id="checkout-modal" class="modal">
-            <div class="modal-content">
-              <h4>Your order is placed!</h4>
-            </div>
-            <div class="modal-footer">
-              <a href="/" class="modal-close waves-effect waves-green btn-flat">Close</a>
-            </div>
-          </div>
-        </div>
-      </div>
     {{/if }}
-  </div>
 </div>

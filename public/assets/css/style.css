@@ -7,11 +7,6 @@ p {
   line-height: 2rem;
 }
 
-body {
-  /*background-image: url("/assets/img/pages1.jpg");
-  background-repeat: repeat;*/
-  
-}
 .table-data {
   vertical-align: top;
 }
@@ -28,6 +23,15 @@ body {
 
 .sidenav-trigger {
   color: white;
+}
+/* Important */
+#cart-items {
+  display: flex;
+  align-items: center;
+}
+/* Important */
+#cart-items p {
+  margin-left: auto;
 }
 /* Important */
 #nav {
@@ -78,7 +82,6 @@ body {
   display: none;
 }
 
-
 .notification-badge {
     height: 30px;
     width: 30px;
@@ -93,7 +96,6 @@ body {
 #model-button{
   margin-right: 25px;
 }
-
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {

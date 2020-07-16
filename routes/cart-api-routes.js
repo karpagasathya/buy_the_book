@@ -27,7 +27,7 @@ module.exports = function (app) {
     });
   });
 
-  app.delete("/api/cart", async () => {
+  app.post("/api/cart/delete", async () => {
     await db.Cart.destroy({ where: {}, truncate: false });
   });
 };

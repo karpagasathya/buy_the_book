@@ -6,7 +6,7 @@ const exphbs = require("express-handlebars");
 // Requiring our models for syncing
 const db = require("./models");
 
-const PORT = process.env.PORT || 8080;
+const PORT = 80;
 
 const app = express();
 
